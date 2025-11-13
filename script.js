@@ -1,12 +1,27 @@
 'use strict';
-function computerChoice() {
-    let choices = ["rock", "paper", "scissors"];
-    let pick = Math.floor(Math.random() * choices.length);
-    if (pick == 0) {
+let choices = ["rock", "paper", "scissors"];
+function getComputerChoice() {
+    let computerPick = Math.floor(Math.random() * choices.length);
+    if (computerPick == 0) {
         return choices[0]
-    } else if (pick == 1) {
+    } else if (computerPick == 1) {
         return choices[1]
     }
     return choices[2];
 };
-console.log(computerChoice());
+console.log(getComputerChoice());
+
+function getHumanChoice() {
+    let humanPick = prompt('rock, paper or scissors');
+    return humanPick
+};
+console.log(getHumanChoice());
+
+let humanChoice = getHumanChoice()
+let computerChoice = getComputerChoice()
+
+let humanScore = 0;
+let computerScore = 0;
+function getOutcome(humanChoice, computerChoice) {
+
+};
