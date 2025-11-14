@@ -24,14 +24,20 @@ let humanScore = 0;
 let computerScore = 0;
 ////////
 
+let draw = 'Tie'
+let playerWin = 'You Win!'
+let compWin = 'Computer Wins!'
+
 function playRound(humanChoice, computerChoice) {
     console.log(humanChoice);
     if (humanChoice === computerChoice) {
-        return 'Tie'
+        return draw;
     } else if (humanChoice == choices[0] && computerChoice == choices[2] || humanChoice == choices[1] && computerChoice == choices[0] || humanChoice == choices[2] && computerChoice == choices[1]) {
-        return 'You Win!'
+        console.log(`human Score: ${++humanScore}`);
+        return playerWin;
     }
-    return 'Computer Wins!'
+    console.log(`Computer Score: ${++computerScore}`);
+    return compWin;
 };
 
 console.log(playRound(humanChoice, compChoice));
