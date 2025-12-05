@@ -11,25 +11,28 @@ const OUT_PUT = document.querySelector(".output");
 ////////
 
 let draw = 'Tie';
-let playerWin = 'You Win!';
-let compWin = 'Computer Wins!';
+let playerWin = 'Player Wins!';
+let compWin = 'Bot Wins!'
 ////////
 
 function playGame() {
     let computerScore = 0;
     let humanScore = 0;
+    let WinningScore = 5;
 
     function playRound(humanChoice, computerChoice) {
-        console.log(`Human: ${humanChoice} | Bot: ${computerChoice}`);
         if (humanChoice === computerChoice) {
             return draw;
-        } else if (humanChoice == choices[0] && computerChoice == choices[2] || humanChoice == choices[1] && computerChoice == choices[0] || humanChoice == choices[2] && computerChoice == choices[1]) {
+        } else if (
+            humanChoice == choices[0] && computerChoice == choices[2] ||
+            humanChoice == choices[1] && computerChoice == choices[0] ||
+            humanChoice == choices[2] && computerChoice == choices[1]) {
             humanScore++
-            console.log(`player score: ${humanScore}`);
+            playerScores.textContent = (`Player score: ${humanScore} | Bot Score: ${computerScore}`);
             return playerWin;
-        };
+        }
         computerScore++
-        console.log(`bot score: ${computerScore}`);
+        playerScores.textContent = (`Player score: ${humanScore} | Bot Score: ${computerScore}`);
         return compWin;
     };
     for (let i = 1; i <= 5; i++) {
