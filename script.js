@@ -35,17 +35,30 @@ function playGame() {
         playerScores.textContent = (`Player score: ${humanScore} | Bot Score: ${computerScore}`);
         return compWin;
     };
-    for (let i = 1; i <= 5; i++) {
-        const playerChoice = getHumanChoice();
-        const compChoice = getComputerChoice();
-        const oneRound = playRound(playerChoice, compChoice);
-        console.log(`Round ${i}: ${oneRound}`);
-    };
-    if (humanScore > computerScore) {
-        return '--Player wins the game--'
-    } else if (humanScore < computerScore) {
-        return '--Bot wins the game--'
-    }
-    return '---TIE!---'
+
+    const playerChoices = document.createElement("p");
+    const playerScores = document.createElement("p");
+    const winOrTie = document.createElement("p");
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+            const playerChoice = event.target.textContent.toLowerCase();
+            const compChoice = getComputerChoice();
+
+            playerChoices.textContent = (`Player: ${playerChoice} | Bot: ${compChoice} `);
+            winOrTie.textContent = playRound(playerChoice, compChoice);
+
+            if (humanScore == WinningScore) {
+                winOrTie.textContent = '--Player wins the game--'
+            } else if (computerScore == WinningScore) {
+                winOrTie.textContent = '--Bot wins the game--'
+            }
+
+            OUT_PUT.appendChild(playerChoices);
+            OUT_PUT.append(winOrTie);
+            OUT_PUT.appendChild(playerScores);
+        });
+    });
+
 }
-console.log(playGame());
+playGame();
