@@ -6,10 +6,8 @@ function getComputerChoice() {
 };
 //////////
 
-function getHumanChoice() {
-    let pick = prompt('rock, paper or scissors');
-    return pick.toLowerCase();
-};
+const buttons = document.querySelectorAll("button");
+const OUT_PUT = document.querySelector(".output");
 ////////
 
 let draw = 'Tie';
