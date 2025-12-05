@@ -1,6 +1,6 @@
 * {
   padding: 0;
-  color: #fff;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande";
 }
 
 body {
@@ -11,7 +11,29 @@ h1 {
   color: white;
   font-family: "Times New Roman", Times, serif, unset;
   text-align: center;
-  margin: 0, auto;
-  font-weight: 800px;
   font-size: 3em;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+button {
+  padding: 10px;
+  font-weight: bolder;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #2f2e2e;
+}
+
+.output {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
 }
